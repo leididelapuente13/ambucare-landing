@@ -31,6 +31,7 @@ export const GET_BY_EMAIL = async (email: string) => {
         const found_user = await EmailModel.findOne({ email });
         return found_user;
     } catch (error) {
+        console.error("Error getting user by email", error);
         return null;
     }
 
