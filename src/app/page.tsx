@@ -6,7 +6,7 @@ import { Footer } from "./ui/layout/footer/Footer";
 
 export default function Home() {
   return (
-    <main className="w-screen">
+    <main>
       <Header />
       <section className="text-center pt-20 py-32 px-2 md:px-8 flex flex-col justify-center items-center mx-auto">
         <h1 className="text-[#0B3B4C] text-3xl font-bold mb-4">Gestión Médica Inteligente, Segura y Eficiente</h1>
