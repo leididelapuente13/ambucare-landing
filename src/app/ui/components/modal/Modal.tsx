@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { AlertDialog, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import { useForm, SubmitHandler } from "react-hook-form"
 import {
   Form,
   FormControl,
@@ -17,31 +17,54 @@ import {
 import { Input } from "@/components/ui/input"
 import { emailSchema } from "@/lib/schemas/email.schema";
 import React, { useState } from "react";
+import { Toaster } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 export const Modal = () => {
   const [open, setOpen] = useState(false);
 
-  const form = useForm<z.infer<typeof emailSchema>>({
+  type emailType = z.infer<typeof emailSchema>;
+
+  const formMethods = useForm<emailType>({
     resolver: zodResolver(emailSchema),
     defaultValues: {
       email: "",
     },
   })
 
-  const onSubmit = async(email: z.infer<typeof emailSchema>) => {
+  const { handleSubmit, trigger, reset, control } = formMethods;
 
-    const isValid = await form.trigger(); 
+  const onSubmit: SubmitHandler<emailType> = async (email: emailType) => {
+    const isValid = await trigger();
+    if (isValid) setOpen(false);
 
-    if (isValid) {
-      console.log(email);
-      setOpen(false);
+    const response = await fetch('/api/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(email),
+    })
+
+    const data = await response.json(); 
+
+    if (response.ok) {
+      toast.success("¡Correo registrado con éxito!", {
+        description: `Te mantendremos informado en ${email.email}.`
+      });
+      reset();
+    } else {
+      toast.error("¡Ups! No pudimos guardar tu correo", {
+        description: data.message ?? "Por favor, inténtalo de nuevo más tarde.",
+      });
     }
 
-    console.log(email)
   }
+
 
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
+      <Toaster position="top-right" richColors />
       <AlertDialogTrigger asChild>
         <Button onClick={() => setOpen(true)} className="bg-white text-black rounded-3xl py-2 lg:py-4 shadow-sm transition delay-150 duration-300 ease-in-out hover:cursor-pointer hover:scale-105 hover:bg-gray-200 hover:text-gray-800">Quiero este servicio</Button>
       </AlertDialogTrigger>
@@ -52,10 +75,10 @@ export const Modal = () => {
             Aún no hemos lanzado, pero estaremos encantados de mantenerte informado sobre el programa beta y el lanzamiento oficial de SIOS AmbuCare.
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
+        <Form {...formMethods}>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
             <FormField
-              control={form.control}
+              control={control}
               name="email"
               render={({ field }) => (
                 <FormItem>
