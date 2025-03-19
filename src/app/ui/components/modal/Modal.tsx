@@ -61,7 +61,6 @@ export const Modal = () => {
 
   }
 
-
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
       <Toaster position="top-right" richColors />
@@ -70,9 +69,9 @@ export const Modal = () => {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Aún no hemos lanzado SIOS AmbuCare</AlertDialogTitle>
-          <AlertDialogDescription>
-            Aún no hemos lanzado, pero estaremos encantados de mantenerte informado sobre el programa beta y el lanzamiento oficial de SIOS AmbuCare.
+          <AlertDialogTitle className="text-[#0B3B4C]">Aún no hemos lanzado SIOS AmbuCare</AlertDialogTitle>
+          <AlertDialogDescription className="text-slate-900">
+            Aún no hemos lanzado SIOS AmbuCare, pero estaremos encantados de mantenerte informado sobre el programa beta y el lanzamiento oficial de SIOS AmbuCare.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <Form {...formMethods}>
@@ -82,7 +81,7 @@ export const Modal = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Correo</FormLabel>
+                  <FormLabel className="text-[#0B3B4C]">Correo</FormLabel>
                   <FormControl>
                     <Input type="email" placeholder="example@example.com" {...field} />
                   </FormControl>
@@ -90,7 +89,7 @@ export const Modal = () => {
                 </FormItem>
               )}
             />
-            <FormDescription>
+            <FormDescription className="text-xs">
               Tu correo solo será utilizado para enviarte novedades relacionadas con el servicio.
             </FormDescription>
             <AlertDialogFooter>
