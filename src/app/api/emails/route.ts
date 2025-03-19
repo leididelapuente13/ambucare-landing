@@ -22,6 +22,7 @@ export const POST = async (req: NextRequest) => {
         await new_email.save();
         return NextResponse.json({ message: "Email guardado exitosamente" }, { status: 201 });
     } catch (error) {
+        console.error(error);
         return NextResponse.json({ message: "Internal sever error" }, { status: 500 });
     }
 }
