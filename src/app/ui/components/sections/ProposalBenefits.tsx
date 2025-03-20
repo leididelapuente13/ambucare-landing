@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle, ClipboardCheck, Hospital, ShieldUser, Users } from "lucide-react"
+import { CheckCircle, Hospital, ShieldUser, Users } from "lucide-react"
 
 export const ProposalBenefits = () => {
     return (
