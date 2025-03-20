@@ -7,7 +7,7 @@ interface RedirectButtonProps {
 
 export const RedirectButton = ({ text, href, className }: RedirectButtonProps) => {
     return (
-        <button className={className}>
+        <button type="button" className={className}>
             <a href={href} target="_blank">{text}</a>
         </button>
     )

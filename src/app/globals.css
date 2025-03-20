@@ -4,6 +4,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --color-green-primary: #0f4c69;
+  --color-green-secondary: #0b3b4c;
+  --color-green-shade-primary: #4284a3;
+  --color-green-shade-secondary: #296c8b;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -84,14 +91,6 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
-  --green-primary: #0b3b4c;
-  --green-secondary: #267a8d;
-  --green-shade: #d9eff1;
-  --green-primary: #0f4c69;
-  --green-secondary: #1b6263;
-  --blue-secondary: #48b3ca;
-  --text-primary: #042d22;
-  --text-secondary: #50676f;
 }
 
 .dark {
@@ -133,6 +132,7 @@
     @apply border-border outline-ring/50;
     scroll-behavior: smooth;
   }
+
   body {
     @apply bg-background text-foreground;
   }

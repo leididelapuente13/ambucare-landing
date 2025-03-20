@@ -46,7 +46,7 @@ export const Modal = () => {
       body: JSON.stringify(email),
     })
 
-    const data = await response.json(); 
+    const data = await response.json();
 
     if (response.ok) {
       toast.success("¡Correo registrado con éxito!", {
@@ -65,11 +65,11 @@ export const Modal = () => {
     <AlertDialog open={open} onOpenChange={setOpen}>
       <Toaster position="top-right" richColors />
       <AlertDialogTrigger asChild>
-        <Button onClick={() => setOpen(true)} className="bg-white text-black rounded-3xl py-2 lg:py-4 shadow-sm transition delay-150 duration-300 ease-in-out hover:cursor-pointer hover:scale-105 hover:bg-gray-200 hover:text-gray-800">Quiero este servicio</Button>
+        <Button type="button" onClick={() => setOpen(true)} className="bg-white text-black md:w-[15%] rounded-3xl py-2 lg:py-4 shadow-sm transition delay-150 duration-300 ease-in-out hover:cursor-pointer hover:scale-105 hover:bg-gray-200 hover:text-gray-800">Quiero este servicio</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle className="text-[#0B3B4C]">Aún no hemos lanzado SIOS AmbuCare</AlertDialogTitle>
+          <AlertDialogTitle className="text-green-secondary">Aún no hemos lanzado SIOS AmbuCare</AlertDialogTitle>
           <AlertDialogDescription className="text-slate-900">
             Aún no hemos lanzado SIOS AmbuCare, pero estaremos encantados de mantenerte informado sobre el programa beta y el lanzamiento oficial de SIOS AmbuCare.
           </AlertDialogDescription>
@@ -81,7 +81,7 @@ export const Modal = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-[#0B3B4C]">Correo</FormLabel>
+                  <FormLabel className="text-green-secondary">Correo</FormLabel>
                   <FormControl>
                     <Input type="email" placeholder="example@example.com" {...field} />
                   </FormControl>
@@ -93,10 +93,10 @@ export const Modal = () => {
               Tu correo solo será utilizado para enviarte novedades relacionadas con el servicio.
             </FormDescription>
             <AlertDialogFooter>
-              <Button className="bg-[#0F4C69]" type="submit">
+              <Button variant="outline" className="hover:cursor-pointer" type="button" onClick={() => setOpen(false)}>Cancelar</Button>
+              <Button className="bg-green-primary hover:bg-green-shade-secondary hover:cursor-pointer" type="submit">
                 Guardar mi correo
               </Button>
-              <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
             </AlertDialogFooter>
           </form>
         </Form>
