@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle, Hospital, ShieldUser, Users } from "lucide-react"
+import { benefits } from "@/lib/data/benefits"
+import { CheckCircle } from "lucide-react"
 
 export const ProposalBenefits = () => {
     return (
@@ -9,73 +10,27 @@ export const ProposalBenefits = () => {
                 SIOS AmbuCare ayuda a médicos, pacientes e instituciones de salud en Colombia que quieren optimizar la documentación clínica y priorizar la atención de pacientes para reducir la carga administrativa y los errores en la información médica, y mejorar la eficiencia en la atención con tiempos de respuesta más rápidos y diagnósticos más precisos.
             </p>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-3">
-                <Card>
-                    <CardHeader>
-                        <Users className="h-10 w-10 text-primary" />
-                        <CardTitle>Para médicos</CardTitle>
-                        <CardDescription>Optimice su tiempo y mejore su precisión clínica.</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-2 text-[0.9rem]">
-                        <div className="flex items-center gap-2">
-                            <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                            <span>Menos tiempo en tareas administrativas.</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                            <span>Mayor precisión en la documentación clínica</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                            <span>Menos estrés y mejor calidad de vida laboral.</span>
-                        </div>
-                    </CardContent>
-                </Card>
-
-                {/* Pacientes */}
-                <Card>
-                    <CardHeader>
-                        <ShieldUser className="h-10 w-10 text-primary mb-2" />
-                        <CardTitle>Para pacientes</CardTitle>
-                        <CardDescription>Mejore su experiencia sanitaria y seguimiento.</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-2 text-[0.9rem]">
-                        <div className="flex items-center gap-2">
-                            <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                            <span>Atención médica ágil según la prioridad de su estado de salud.</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                            <span>Diagnósticos más confiables gracias a información médica precisa.</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                            <span>Mejor experiencia y seguimiento de su historial médico.</span>
-                        </div>
-                    </CardContent>
-                </Card>
-
-                {/* Instituciones de Salud */}
-                <Card>
-                    <CardHeader>
-                        <Hospital className="h-10 w-10 text-primary mb-2" />
-                        <CardTitle>Para instituciones de salud</CardTitle>
-                        <CardDescription>Optimice la gestión, eficiencia y recursos hospitalarios.</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-2 text-[0.9rem]">
-                        <div className="flex items-center gap-2">
-                            <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                            <span>Mayor eficiencia operativa.</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                            <span>Cumplimiento normativo mejorado con documentación precisa.</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                            <span>Mayor satisfacción de pacientes y médicos, mejorando la reputación del centro de salud.</span>
-                        </div>
-                    </CardContent>
-                </Card>
+                {
+                    benefits.map(({ icon, title, description, benefits }) => (
+                        <Card key={title}>
+                            <CardHeader>
+                                {icon}
+                                <CardTitle>{title}</CardTitle>
+                                <CardDescription>{description}</CardDescription>
+                            </CardHeader>
+                            {
+                                benefits.map((benefit) => (
+                                    <CardContent className="space-y-2 text-[0.9rem]" key={benefit}>
+                                        <div className="flex items-center gap-2">
+                                            <CheckCircle className="h-4 w-4 text-primary shrink-0" />
+                                            <span>{benefit}</span>
+                                        </div>
+                                    </CardContent>
+                                ))
+                            }
+                        </Card>
+                    ))
+                }
             </div>
         </section>
     )
