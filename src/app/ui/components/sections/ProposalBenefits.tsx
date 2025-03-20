@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle, ClipboardCheck, Hospital, Users } from "lucide-react"
+import { CheckCircle, ClipboardCheck, Hospital, ShieldUser, Users } from "lucide-react"
 
 export const ProposalBenefits = () => {
     return (
@@ -11,13 +11,13 @@ export const ProposalBenefits = () => {
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-3">
                 <Card>
                     <CardHeader>
-                        <ClipboardCheck className="h-10 w-10 text-primary" />
+                        <Users className="h-10 w-10 text-primary" />
                         <CardTitle>Para médicos</CardTitle>
                         <CardDescription>Optimice su tiempo y mejore su precisión clínica.</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-2 text-[0.9rem]">
                         <div className="flex items-center gap-2">
-                            <CheckCircle className="h-4 w-4 text-primary shrink-0"  />
+                            <CheckCircle className="h-4 w-4 text-primary shrink-0" />
                             <span>Menos tiempo en tareas administrativas.</span>
                         </div>
                         <div className="flex items-center gap-2">
@@ -34,7 +34,7 @@ export const ProposalBenefits = () => {
                 {/* Pacientes */}
                 <Card>
                     <CardHeader>
-                        <ClipboardCheck className="h-10 w-10 text-primary mb-2" />
+                        <ShieldUser className="h-10 w-10 text-primary mb-2" />
                         <CardTitle>Para pacientes</CardTitle>
                         <CardDescription>Mejore su experiencia sanitaria y seguimiento.</CardDescription>
                     </CardHeader>
