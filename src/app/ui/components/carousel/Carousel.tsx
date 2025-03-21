@@ -1,6 +1,6 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
@@ -9,6 +9,7 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel"
+import { improvedProcedures } from "@/lib/data/improvedProcedures"
 import { useEffect, useState } from "react"
 
 export const ProcessCarousel = () => {
@@ -33,11 +34,17 @@ export const ProcessCarousel = () => {
     <div className="mx-auto w-fit max-w-[80%]">
       <Carousel setApi={setApi} className="">
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <CarouselItem key={index}>
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
+          {improvedProcedures.map(({ title, description }, index) => (
+            <CarouselItem key={index} className="flex justify-center">
+              <Card className="shadow-2xs border border-gray-200 rounded-xl p-6 bg-white w-full max-w-lg">
+                <CardHeader className="flex justify-center items-center text-center">
+                  <div className="w-9 h-9 flex justify-center items-center border-4 border-green-primary text-white rounded-full">
+                    <p className="text-green-primary font-bold">{index + 1}</p>
+                  </div>
+                  <CardTitle className="text-base font-semibold text-green-primary">{title}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-gray-700 text-sm text-justify leading-relaxed">
+                  {description}
                 </CardContent>
               </Card>
             </CarouselItem>
@@ -46,7 +53,7 @@ export const ProcessCarousel = () => {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <div className="py-2 text-center text-sm text-muted-foreground">
+      <div className="text-center text-sm text-gray-500 mt-4">
         Paso {current} de {count} pasos
       </div>
     </div>
