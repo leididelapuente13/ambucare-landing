@@ -65,7 +65,7 @@ export const Modal = () => {
     <AlertDialog open={open} onOpenChange={setOpen}>
       <Toaster position="top-right" richColors />
       <AlertDialogTrigger asChild>
-        <Button type="button" onClick={() => setOpen(true)} className="bg-white text-black md:w-[15%] rounded-3xl py-2 lg:py-4 shadow-sm transition delay-150 duration-300 ease-in-out hover:cursor-pointer hover:scale-105 hover:bg-gray-200 hover:text-gray-800">Quiero este servicio</Button>
+        <Button type="button" onClick={() => setOpen(true)} className="bg-white text-black md:w-[15%] lg:w-fit rounded-3xl py-2 lg:py-4 shadow-sm transition delay-150 duration-300 ease-in-out hover:cursor-pointer hover:scale-105 hover:bg-gray-200 hover:text-gray-800">Quiero este servicio</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

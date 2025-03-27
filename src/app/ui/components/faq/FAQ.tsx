@@ -14,7 +14,7 @@ export const FAQ = () => {
                     <AccordionItem key={question} value={question}>
                         <AccordionTrigger>{question}</AccordionTrigger>
                         <AccordionContent className="text-justify tracking-tighter">
-                            {answer}
+                            <p className="text-gray-700 text-sm text-left leading-relaxed tracking-normal">{answer}</p>
                         </AccordionContent>
                     </AccordionItem>
                 ))

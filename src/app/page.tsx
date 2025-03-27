@@ -6,12 +6,13 @@ import { ProposalOfValue } from "@/app/ui/components/sections/ProposalOfValue";
 import { FrequentQuestions } from "@/app/ui/components/sections/FrequentQuestions";
 import { Polls } from "@/app/ui/components/sections/Polls";
 import { ProposalBenefits } from "@/app/ui/components/sections/ProposalBenefits";
+import { poppins } from "./ui/fonts";
 
 export default function Home() {
   return (
     <>
       <Meta />
-      <main>
+      <main className={poppins.className}>
         <Header />
         <ProjectDescription />
         <ProposalOfValue />
