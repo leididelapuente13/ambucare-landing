@@ -17,7 +17,6 @@ import {
 import { Input } from "@/components/ui/input"
 import { emailSchema } from "@/lib/schemas/email.schema";
 import React, { useState } from "react";
-import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 
 export const Modal = () => {
@@ -63,7 +62,6 @@ export const Modal = () => {
 
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
-      <Toaster position="top-right" richColors />
       <AlertDialogTrigger asChild>
         <Button type="button" onClick={() => setOpen(true)} className="bg-white text-black md:w-[15%] lg:w-fit rounded-3xl py-2 lg:py-4 shadow-sm transition delay-150 duration-300 ease-in-out hover:cursor-pointer hover:scale-105 hover:bg-gray-200 hover:text-gray-800">Quiero este servicio</Button>
       </AlertDialogTrigger>

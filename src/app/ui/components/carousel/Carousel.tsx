@@ -33,20 +33,17 @@ export const ProcessCarousel = () => {
 
   return (
     <div className="mx-auto w-fit max-w-[80%]">
-      <Carousel setApi={setApi} className="">
+      <Carousel setApi={setApi}>
         <CarouselContent>
           {improvedProcedures.map(({ title, description, imagepath }, index) => (
             <CarouselItem key={index} className="flex justify-center">
               <Card className="shadow-2xs border border-gray-200 rounded-xl p-5 bg-white w-full max-w-lg gap-4">
-                <CardHeader className="flex flex-col justify-center items-center text-center">
-                  <div className="w-8 h-8 flex text-center border-4 border-green-primary text-white rounded-full">
-                    <p className="text-green-primary font-bold mx-auto">{index + 1}</p>
-                  </div>
-                  <CardTitle className="text-base font-semibold text-green-primary">{title}</CardTitle>
+                <CardHeader className="flex flex-col justify-center items-center text-center pt-2.5">
+                  <CardTitle className="text-lg font-semibold text-green-primary">{title}</CardTitle>
                 </CardHeader>
                 <CardContent className=" leading-relaxed flex flex-col gap-4 h-fit">
-                  <div className="line-clamp">
-                    <p className="text-gray-700 text-sm text-left leading-relaxed tracking-normal break-words hyphens-auto">{description}</p>
+                  <div className="text-gray-700 text-sm text-left leading-relaxed tracking-normal break-words hyphens-auto line-clamp">
+                    {description}
                   </div>
                   <div className="h-[40%]">
                     <Image alt={`Imagen del paso ${title}`} src={imagepath} width={420} height={300} placeholder="blur" blurDataURL={imagepath} />

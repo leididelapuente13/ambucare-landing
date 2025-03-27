@@ -9,6 +9,7 @@
   --color-green-secondary: #0b3b4c;
   --color-green-shade-primary: #4284a3;
   --color-green-shade-secondary: #296c8b;
+  --color-green-absent: #1b79a5;
 }
 
 @theme inline {
@@ -136,4 +137,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.text-primary {
+  color: #1b79a5;
 }

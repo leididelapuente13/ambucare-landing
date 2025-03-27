@@ -5,7 +5,7 @@ import { CheckCircle } from "lucide-react"
 export const ProposalBenefits = () => {
     return (
         <section className="py-5 w-[80%] 2xl:w-[50%] my-16 flex flex-col gap-1 mx-auto">
-            <h3 className="text-green-secondary text-[1.8rem] text-left font-bold">Soluciones para todos los actores del sistema de salud</h3>
+            <h3 className="text-green-absent text-[1.8rem] text-left font-bold">Soluciones para todos los actores del sistema de salud</h3>
             <p className="text-base text-gray-600">
                 SIOS AmbuCare ayuda a médicos, pacientes e instituciones de salud en Colombia que quieren optimizar la documentación clínica y priorizar la atención de pacientes para reducir la carga administrativa y los errores en la información médica, y mejorar la eficiencia en la atención con tiempos de respuesta más rápidos y diagnósticos más precisos.
             </p>
@@ -15,7 +15,7 @@ export const ProposalBenefits = () => {
                         <Card key={title}>
                             <CardHeader>
                                 {icon}
-                                <CardTitle>{title}</CardTitle>
+                                <CardTitle className="text-[#12516e]">{title}</CardTitle>
                                 <CardDescription>{description}</CardDescription>
                             </CardHeader>
                             {
